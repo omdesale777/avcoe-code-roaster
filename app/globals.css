@@ -52,6 +52,15 @@
   box-shadow: 1px 1px 0px #141414;
 }
 
+.brutal-card-hover {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brutal-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0px #141414;
+}
+
 /* Drafting Grid Accent */
 .drafting-grid {
   background-image: linear-gradient(to right, rgba(20, 20, 20, 0.04) 1px, transparent 1px),

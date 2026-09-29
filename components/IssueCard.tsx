@@ -36,7 +36,7 @@ export function IssueCard({ index, issue }: IssueCardProps) {
     SEVERITY_STYLES[issue.severity] || SEVERITY_STYLES["FATAL BUG"];
 
   return (
-    <div className="bg-white rounded-[16px] brutal-border brutal-shadow-sm p-4 space-y-3 transition-transform hover:-translate-y-0.5">
+    <div className="bg-white rounded-[16px] brutal-border brutal-shadow-sm p-4 space-y-3 brutal-card-hover">
       {/* Top Header Row */}
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center gap-2">
