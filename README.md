@@ -269,10 +269,20 @@ initialize a git repository here and commit + push the changes to this remote ht
 
 ## 💡 Troubleshooting & Tips
 
-- **Missing `GEMINI_API_KEY`**: Ensure `.env.local` exists in the root directory and contains `GEMINI_API_KEY=AIzaSy...`. Restart `npm run dev` after changing environment variables.
+- **Missing `GEMINI_API_KEY`**: Ensure `.env.local` exists in the root directory and contains `GEMINI_API_KEY=...`. Restart `npm run dev` after changing environment variables.
 - **Stitch MCP Connection Issues**: If Antigravity cannot connect to Stitch MCP, check that your `STITCH_API_KEY` is valid and that the MCP process is running under `Settings -> MCP Servers`.
-- **429 Rate Limit on Gemini**: Gemini Free Tier gives generous RPM. If you hit rate limits, wait 10 seconds or switch model to `gemini-3.5-flash-lite` in `config/app.config.ts`.
-- **Vercel Build Error with Secrets**: Make sure `GEMINI_API_KEY` is added to the Vercel project environment variables; otherwise, the API route will fail at runtime.
+- **429 Rate Limit on Gemini**: Gemini Free Tier gives generous RPM. If you hit rate limits, wait 10 seconds or verify `gemini-3.5-flash-lite` in `config/app.config.ts`.
+- **Vercel Deployment**: Make sure `GEMINI_API_KEY` is added to your Vercel Project Settings under **Environment Variables**.
+
+---
+
+## ⌨️ Keyboard Shortcuts Reference
+
+| Shortcut | Action | Scope |
+| :--- | :--- | :--- |
+| `Ctrl + Enter` / `Cmd + Enter` | Trigger AI Code Roast | Global |
+| `Escape` | Dismiss error traceback drawer | Global |
+| `Tab` | Insert 4-space code indentation | Code Editor |
 
 ---
 
