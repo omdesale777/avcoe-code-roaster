@@ -145,7 +145,9 @@ export function CodeEditor({
           </span>
         </div>
         <div className="hidden sm:flex items-center gap-3">
-          <span>UTF-8 · Tab Size: 4</span>
+          <span>{lines.length} lines · {code.length.toLocaleString()} chars</span>
+          <span className="text-gray-600">•</span>
+          <span>UTF-8 · Tab: 4</span>
         </div>
       </div>
     </div>
