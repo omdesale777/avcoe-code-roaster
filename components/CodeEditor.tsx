@@ -129,6 +129,7 @@ export function CodeEditor({
             onKeyDown={handleKeyDown}
             wrap="off"
             spellCheck={false}
+            aria-label="Source code editor input"
             placeholder="// Paste your code here..."
             className="w-full h-full p-3 font-mono text-xs text-[#F7F3EA] bg-transparent resize-none focus:outline-none overflow-auto leading-[22px] placeholder:text-gray-600 whitespace-pre"
           />

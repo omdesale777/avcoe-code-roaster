@@ -26,7 +26,7 @@ export function RoastControls({
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 w-full">
       {/* 1. Roast Level Radio Group */}
-      <div className="flex items-center gap-2 flex-wrap">
+      <div className="flex items-center gap-2 flex-wrap" role="radiogroup" aria-label="Select code roast intensity level">
         <span className="font-mono text-xs font-bold uppercase tracking-wider text-gray-600">
           Roast Level:
         </span>
@@ -37,6 +37,7 @@ export function RoastControls({
               <label
                 key={level.id}
                 title={level.description}
+                aria-label={`${level.label} intensity: ${level.description}`}
                 className={`cursor-pointer px-3 py-1 text-xs font-mono font-bold rounded-full transition-all flex items-center gap-1.5 select-none ${
                   isSelected
                     ? "bg-[#EDB13E] text-black border border-black shadow-[1px_1px_0px_#141414]"
@@ -48,6 +49,7 @@ export function RoastControls({
                   name="roastLevel"
                   value={level.id}
                   checked={isSelected}
+                  aria-checked={isSelected}
                   onChange={() => onRoastLevelChange(level.id)}
                   className="sr-only"
                 />
@@ -55,6 +57,7 @@ export function RoastControls({
                   className={`w-2 h-2 rounded-full border border-black ${
                     isSelected ? "bg-black" : "bg-white"
                   }`}
+                  aria-hidden="true"
                 />
                 <span>{level.label}</span>
               </label>
@@ -70,6 +73,7 @@ export function RoastControls({
           <select
             value={language}
             onChange={(e) => onLanguageChange(e.target.value as LanguageId)}
+            aria-label="Select target programming language"
             className="appearance-none bg-white text-xs font-mono font-semibold pl-3 pr-8 py-2 rounded-full border-2 border-black brutal-shadow-sm cursor-pointer focus:outline-none"
           >
             {LANGUAGES.map((lang) => (
@@ -78,7 +82,7 @@ export function RoastControls({
               </option>
             ))}
           </select>
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xs text-black">
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xs text-black" aria-hidden="true">
             ▼
           </span>
         </div>
@@ -87,13 +91,15 @@ export function RoastControls({
         <button
           type="button"
           onClick={onToggleErrorDrawer}
+          aria-expanded={errorDrawerOpen}
+          aria-label={errorDrawerOpen ? "Close error message drawer" : "Attach compiler error or stack trace"}
           className={`text-xs font-mono font-bold px-3 py-2 rounded-full border-2 border-dashed transition-all flex items-center gap-1 ${
             errorDrawerOpen
               ? "bg-[#141414] text-white border-black"
               : "bg-white text-gray-700 border-black hover:bg-[#EFF2FB]"
           }`}
         >
-          <span>{errorDrawerOpen ? "−" : "+"}</span>
+          <span aria-hidden="true">{errorDrawerOpen ? "−" : "+"}</span>
           <span>ERROR MESSAGE</span>
         </button>
 
@@ -102,6 +108,7 @@ export function RoastControls({
           type="button"
           disabled={isRoasting}
           onClick={onRoast}
+          aria-label="Roast submitted code with Gemini AI"
           className={`px-5 py-2 rounded-full border-2 border-black brutal-shadow flex items-center gap-2 font-display font-black text-xs md:text-sm uppercase tracking-tight transition-all duration-75 ${
             isRoasting
               ? "bg-gray-300 text-gray-600 cursor-not-allowed animate-pulse"
@@ -109,7 +116,7 @@ export function RoastControls({
           }`}
         >
           <span>{isRoasting ? "ANALYZING..." : "ROAST MY CODE"}</span>
-          <span className="text-[10px] font-mono font-normal bg-black text-white px-1.5 py-0.5 rounded border border-black/40">
+          <span className="text-[10px] font-mono font-normal bg-black text-white px-1.5 py-0.5 rounded border border-black/40" aria-hidden="true">
             Ctrl ⏎
           </span>
         </button>

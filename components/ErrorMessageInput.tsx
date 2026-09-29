@@ -19,6 +19,7 @@ export function ErrorMessageInput({
         </span>
         <button
           onClick={onClose}
+          aria-label="Dismiss error traceback drawer"
           className="text-xs font-mono font-bold text-gray-500 hover:text-black px-2 py-0.5 rounded border border-transparent hover:border-black transition-colors"
         >
           Dismiss ✕
@@ -28,6 +29,7 @@ export function ErrorMessageInput({
         rows={2}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        aria-label="Terminal traceback or compiler error"
         placeholder="e.g. TypeError: unsupported operand type(s) for +=: 'int' and 'list' at line 4"
         className="w-full p-2.5 bg-white font-mono text-xs rounded-xl border-2 border-black brutal-shadow-sm focus:outline-none placeholder:text-gray-400"
       />
