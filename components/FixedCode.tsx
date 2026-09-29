@@ -76,6 +76,7 @@ export function FixedCode({
       <div className="flex flex-wrap items-center gap-3 pt-1">
         <button
           onClick={handleCopy}
+          title="Copy corrected code solution to clipboard"
           className="flex-1 bg-white hover:bg-[#141414] hover:text-white active:translate-x-[1px] active:translate-y-[1px] text-xs font-mono font-bold py-2.5 px-4 rounded-full border-2 border-black brutal-shadow-sm transition-all text-center"
         >
           {copyLabel}
@@ -83,6 +84,7 @@ export function FixedCode({
 
         <button
           onClick={() => onApply(code)}
+          title="Apply this corrected code directly to the code editor"
           className="flex-1 bg-[#EDB13E] hover:bg-[#141414] hover:text-white active:translate-x-[1px] active:translate-y-[1px] text-xs font-mono font-bold py-2.5 px-4 rounded-full border-2 border-black brutal-shadow-sm transition-all text-center"
         >
           APPLY TO EDITOR ↵
