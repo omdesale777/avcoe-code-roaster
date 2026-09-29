@@ -23,7 +23,24 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: `${APP.name} — AI Code Critique`,
-  description: APP.tagline,
+  description: `${APP.name} (Desi Edition): ${APP.tagline} Powered by Gemini 3.5 Flash-Lite for DevFest Nashik 2026.`,
+  keywords: [
+    "Code Roaster",
+    "DevFest Nashik 2026",
+    "Google Developer Groups",
+    "GDG Nashik",
+    "Gemini AI",
+    "Code Review",
+    "Hinglish",
+    "Next.js 15",
+  ],
+  authors: [{ name: "GDG Nashik Community" }],
+  openGraph: {
+    title: `${APP.name} (Desi Edition) — DevFest Nashik 2026`,
+    description: APP.tagline,
+    siteName: APP.name,
+    type: "website",
+  },
 };
 
 export default function RootLayout({
