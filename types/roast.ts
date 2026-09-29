@@ -28,3 +28,8 @@ export interface RoastResult {
 }
 
 export type ReportState = "empty" | "loading" | "results" | "error";
+
+export const isFatalBug = (issue: RoastIssue): boolean => issue.severity === "FATAL BUG";
+export const isCodeSmell = (issue: RoastIssue): boolean => issue.severity === "CODE SMELL";
+export const isOptimization = (issue: RoastIssue): boolean => issue.severity === "OPTIMIZATION";
+
