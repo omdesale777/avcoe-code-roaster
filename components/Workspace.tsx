@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
-import { DEFAULTS, SAMPLE } from "@/config/app.config";
+import { AI, DEFAULTS, SAMPLE } from "@/config/app.config";
 import { requestRoast } from "@/lib/api";
 import {
   LanguageId,
@@ -115,7 +115,7 @@ export function Workspace() {
           Paste your code. Pick your roast level. Get humbled. Get the fix.
         </p>
         <div className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-600 bg-white/80 px-3 py-1 rounded-full border border-black/20">
-          <span>⚡ Desi debugging, powered by Gemini 2.5 Flash &amp; cutting chai ☕</span>
+          <span>⚡ Desi debugging, powered by {AI.modelLabel} &amp; cutting chai ☕</span>
         </div>
       </section>
 

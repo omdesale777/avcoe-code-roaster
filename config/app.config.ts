@@ -5,8 +5,8 @@ export const APP = {
 } as const;
 
 export const AI = {
-  model: "gemini-2.5-flash-lite",
-  modelLabel: "Gemini 2.5 Flash-Lite",
+  model: "gemini-3.5-flash-lite",
+  modelLabel: "Gemini 3.5 Flash-Lite",
   maxAttempts: 3,
 } as const;
 
