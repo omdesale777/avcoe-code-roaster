@@ -52,11 +52,15 @@ export function RoastReport({
           Roast Report
         </div>
 
-        <div className="w-12" />
+        <div className="flex items-center gap-1.5">
+          <span className="inline-flex items-center gap-1 bg-[#F7E3A8] text-charcoal text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border border-black">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D9503F] animate-ping" /> LIVE
+          </span>
+        </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col overflow-y-auto">
+      <div className="flex-1 flex flex-col overflow-y-auto" aria-live="polite">
         {state === "empty" && <EmptyState />}
         {state === "loading" && <LoadingState />}
         {state === "error" && (
