@@ -70,18 +70,20 @@ export function Workspace() {
     setCode(fixedCode);
   }, []);
 
-  // Global Keyboard Listener for Ctrl/Cmd + Enter
+  // Global Keyboard Listener for Ctrl/Cmd + Enter & Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
         e.preventDefault();
         handleRoast();
+      } else if (e.key === "Escape" && errorDrawerOpen) {
+        setErrorDrawerOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleRoast]);
+  }, [handleRoast, errorDrawerOpen]);
 
   // errorLine: only defined when reportState === "results" && code === roastedCode
   const errorLine =
