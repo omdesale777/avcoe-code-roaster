@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  --color-cream: #F8F4EC;
+  --color-mustard: #EDB13E;
+  --color-charcoal: #141414;
+  --color-paleyellow: #F7E3A8;
+  --color-lavender: #EFF2FB;
+  --color-gblue: #4C80F0;
+  --color-chilli: #D9503F;
+  --color-kothimbir: #4FA35A;
+  --color-editor-bg: #171717;
+  --color-editor-ink: #F7F3EA;
+}
+
+/* Neo-Brutalist Border and Shadow Primitives */
+.brutal-border {
+  border: 2.5px solid #141414;
+}
+
+.brutal-border-sm {
+  border: 2px solid #141414;
+}
+
+.brutal-shadow {
+  box-shadow: 4px 4px 0px #141414;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0px #141414;
+}
+
+.brutal-shadow-lg {
+  box-shadow: 6px 6px 0px #141414;
+}
+
+.brutal-press {
+  transition: all 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brutal-press:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #141414;
+}
+
+.brutal-press:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px #141414;
+}
+
+/* Drafting Grid Accent */
+.drafting-grid {
+  background-image: linear-gradient(to right, rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(20, 20, 20, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Thin Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F4EC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #141414;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EDB13E;
+}

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Roaster (Desi Edition) - DevFest Nashik 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            cream: '#F8F4EC',
+            mustard: '#EDB13E',
+            charcoal: '#141414',
+            gblue: '#4C80F0',
+            chilli: '#D9503F',
+            kothimbir: '#4FA35A',
+            paleyellow: '#F7E3A8',
+          },
+          boxShadow: {
+            'brutal-sm': '2px 2px 0px #141414',
+            'brutal': '4px 4px 0px #141414',
+            'brutal-lg': '6px 6px 0px #141414',
+            'brutal-xl': '8px 8px 0px #141414',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .brutal-border {
+      border: 2.5px solid #141414;
+    }
+    .brutal-border-2 {
+      border: 2px solid #141414;
+    }
+    .brutal-shadow {
+      box-shadow: 4px 4px 0px #141414;
+    }
+    .brutal-shadow-sm {
+      box-shadow: 2px 2px 0px #141414;
+    }
+    .brutal-shadow-lg {
+      box-shadow: 6px 6px 0px #141414;
+    }
+    .warli-ribbon {
+      background-image: repeating-linear-gradient(45deg, #141414 0, #141414 6px, transparent 0, transparent 12px);
+    }
+  </style>
+</head>
+<body class="bg-[#F8F4EC] text-[#141414] font-sans min-h-screen flex flex-col antialiased selection:bg-mustard selection:text-black">
+
+  <!-- TOP FLOATING PILL NAVBAR -->
+  <header class="sticky top-4 z-50 px-4 max-w-6xl mx-auto w-full pt-3">
+    <nav class="bg-white rounded-full brutal-border brutal-shadow px-5 py-2.5 flex items-center justify-between gap-4">
+      
+      <!-- Left: GDG Nashik Logo -->
+      <div class="flex items-center gap-3 shrink-0">
+        <svg width="180" height="38" viewBox="0 0 1098 155" fill="none" class="h-7 md:h-8 w-auto">
+          <path d="M55.5846 13.2663L17.3299 40.755C9.30045 46.5248 7.46859 57.7113 13.2384 65.7408L13.2418 65.7457C19.0116 73.7751 30.1981 75.607 38.2276 69.8372L76.4822 42.3485C84.5117 36.5787 86.3436 25.3922 80.5738 17.3627L80.5703 17.3579C74.8006 9.32841 63.614 7.49654 55.5846 13.2663Z" fill="#EA4335"/>
+          <path d="M13.2575 44.8246L13.254 44.8295C7.48421 52.859 9.31608 64.0455 17.3456 69.8153L55.6002 97.304C63.6297 103.074 74.8162 101.242 80.586 93.2124L80.5894 93.2076C86.3592 85.1781 84.5274 73.9916 76.4979 68.2218L38.2433 40.7331C30.2138 34.9633 19.0272 36.7952 13.2575 44.8246Z" fill="#4285FA"/>
+          <path d="M148.012 40.7732L109.757 68.2619C101.728 74.0317 99.8958 85.2182 105.666 93.2477L105.669 93.2525C111.439 101.282 122.625 103.114 130.655 97.3441L168.909 69.8554C176.939 64.0856 178.771 52.8991 173.001 44.8696L172.998 44.8647C167.228 36.8352 156.041 35.0034 148.012 40.7732Z" fill="#F9AB00"/>
+          <path d="M105.677 17.3295L105.673 17.3344C99.9036 25.3639 101.736 36.5504 109.765 42.3202L148.02 69.8089C156.049 75.5787 167.236 73.7468 173.005 65.7173L173.009 65.7125C178.779 57.683 176.947 46.4965 168.917 40.7267L130.663 13.238C122.633 7.46817 111.447 9.30004 105.677 17.3295Z" fill="#34A853"/>
+          <path d="M209.634 142V109.064H214.418L230.932 135.284H231.116L230.932 128.936V109.064H234.842V142H230.794L213.544 114.538H213.36L213.544 120.886V142H209.634ZM322.864 142V109.064H326.774V129.718L337.814 118.54H342.782V118.724L333.536 127.97L343.058 141.816V142H338.366L330.822 130.73L326.774 134.778V142H322.864Z" fill="#4285FA"/>
+          <text x="210" y="65" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="44" fill="#0F0F0F">Google Developer Groups</text>
+          <text x="355" y="138" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="40" fill="#4285FA">Nashik</text>
+        </svg>
+      </div>
+
+      <!-- Center: Wordmark + Spicy Pill -->
+      <div class="hidden md:flex items-center gap-2">
+        <span class="font-display font-black tracking-tight text-sm uppercase">CODE ROASTER <span class="text-mustard">v2</span></span>
+        <span class="inline-flex items-center gap-1 bg-[#F7E3A8] text-xs font-mono font-bold px-2 py-0.5 rounded-full border border-black shadow-[1px_1px_0px_#141414]">
+          🌶️ DESI
+        </span>
+      </div>
+
+      <!-- Right: DevFest Nashik Logo & CTA Button -->
+      <div class="flex items-center gap-3">
+        <div class="hidden lg:block shrink-0">
+          <svg width="150" height="38" viewBox="0 0 638 182" fill="none" class="h-7 w-auto">
+            <path d="M3.53604 106.838H10.9986V155.943C15.8132 168.454 22.8661 172.97 39.8932 180.023H59.1517V151.078H44.3815V32.4814H59.1517V1.61523H39.8932C22.8685 8.66571 15.8132 25.6885 15.8132 69.9455H3.53604V106.838Z" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <path d="M633.511 74.7938H626.048V25.6885C621.217 10.8962 614.172 8.66075 597.137 1.61524H577.875V30.5502H592.659V144.335H577.878V180.023H597.137C614.163 172.969 621.217 155.943 621.217 111.686H633.511V74.7938Z" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="90" y="70" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="78" fill="#1E1E1E">DevFest</text>
+            <rect x="90" y="114" width="458" height="66" rx="33" fill="white" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="130" y="160" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="34" fill="#1E1E1E">नाशिक</text>
+            <rect x="380" y="114" width="168" height="66" rx="33" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="430" y="160" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="36" fill="#1E1E1E">'26</text>
+          </svg>
+        </div>
+
+        <button class="bg-mustard hover:bg-[#e2a42f] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-75 text-xs md:text-sm font-display font-bold px-4 py-2 rounded-full border-2 border-black brutal-shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+          <span>Roast Me / भाजून काढ</span>
+          <span>🔥</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN HERO SECTION -->
+  <section class="max-w-5xl mx-auto px-4 pt-10 pb-6 text-center">
+    
+    <!-- Eyebrow Pill Badge -->
+    <div class="inline-flex items-center gap-2 bg-white rounded-full brutal-border-2 brutal-shadow-sm px-4 py-1 mb-4 text-xs font-mono font-bold tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-full bg-chilli animate-pulse"></span>
+      <span>CODE BOL RAHA HAI · मला वाचवा!</span>
+      <span class="text-gray-400">|</span>
+      <span class="text-gblue">DevFest Nashik 2026</span>
+    </div>
+
+    <!-- Title with tilted yellow badge -->
+    <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-3">
+      <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight text-charcoal">
+        Code Roaster
+      </h1>
+      <span class="inline-block transform -rotate-2 bg-mustard font-display font-black text-2xl sm:text-3xl md:text-4xl px-3.5 py-1 rounded-xl brutal-border-2 brutal-shadow">
+        Desi Edition
+      </span>
+    </div>
+
+    <!-- Subheading & local microcopy -->
+    <p class="font-sans text-base md:text-lg text-gray-700 font-medium max-w-2xl mx-auto mb-2">
+      Paste your code. Pick your roast level. Get humbled. Get the fix.
+    </p>
+    <div class="inline-flex items-center gap-1.5 text-xs font-mono text-gray-600 bg-white/70 px-3 py-1 rounded-full border border-black/20">
+      <span>⚡ Desi debugging, powered by Gemini 1.5 Flash &amp; cutting chai ☕</span>
+    </div>
+  </section>
+
+  <!-- MAIN TOOL WORKBENCH CARD -->
+  <main class="max-w-6xl mx-auto px-4 pb-16 w-full flex-1">
+    <div class="bg-white rounded-[22px] brutal-border brutal-shadow-lg p-4 md:p-6 mb-8">
+      
+      <!-- TOP CONTROL BAR -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-6 border-b-2 border-black/10">
+        
+        <!-- Spiciness / Roast Level -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-xs font-mono font-bold tracking-wider uppercase text-gray-500 mr-1 flex items-center gap-1">
+            🌶️ SPICINESS:
+          </span>
+          <div class="inline-flex p-1 bg-[#F8F4EC] rounded-full border-2 border-black">
+            <button class="px-3 py-1 text-xs font-mono font-semibold rounded-full hover:bg-white text-gray-700 transition-colors">
+              Halka / हलका
+            </button>
+            <button class="px-3 py-1 text-xs font-mono font-bold rounded-full bg-mustard border border-black brutal-shadow-sm text-black transition-all">
+              Tikha / तिखट 🔥
+            </button>
+            <button class="px-3 py-1 text-xs font-mono font-semibold rounded-full hover:bg-white text-gray-700 transition-colors">
+              Zanzanit / झणझणीत 🌶️
+            </button>
+          </div>
+        </div>
+
+        <!-- Persona, Language & Error toggles -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <!-- Persona Dropdown -->
+          <div class="relative">
+            <select class="appearance-none bg-white text-xs font-mono font-semibold pl-3 pr-8 py-2 rounded-full border-2 border-black brutal-shadow-sm cursor-pointer focus:outline-none">
+              <option>Stand-up Roaster (Bandra Open Mic)</option>
+              <option>Sharma Ji Ka Beta</option>
+              <option>Strict Professor</option>
+              <option>Hostel Bhau</option>
+            </select>
+            <span class="absolute right-2.5 top-2.5 pointer-events-none text-xs">▼</span>
+          </div>
+
+          <!-- Language Dropdown -->
+          <div class="relative">
+            <select class="appearance-none bg-white text-xs font-mono font-semibold pl-3 pr-8 py-2 rounded-full border-2 border-black brutal-shadow-sm cursor-pointer focus:outline-none">
+              <option>Auto-detect (Python)</option>
+              <option>JavaScript / TypeScript</option>
+              <option>C++</option>
+              <option>Java</option>
+              <option>Go</option>
+              <option>SQL</option>
+            </select>
+            <span class="absolute right-2.5 top-2.5 pointer-events-none text-xs">▼</span>
+          </div>
+
+          <!-- + Error Message Button -->
+          <button class="bg-[#F8F4EC] hover:bg-paleyellow text-xs font-mono font-bold px-3 py-2 rounded-full border-2 border-dashed border-black transition-colors flex items-center gap-1">
+            <span>⊕</span>
+            <span>+ ERROR MESSAGE</span>
+          </button>
+
+          <!-- Primary CTA Button -->
+          <button class="bg-mustard hover:bg-[#e2a42f] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-75 text-xs md:text-sm font-display font-black px-5 py-2 rounded-full border-2 border-black brutal-shadow flex items-center gap-2">
+            <span>Roast Me / भाजून काढ 🔥</span>
+            <span class="text-base font-bold">→</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- SPLIT PANE WORKBENCH LAYOUT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6 items-start">
+        
+        <!-- LEFT COLUMN: CODE EDITOR PANE -->
+        <div class="lg:col-span-6 flex flex-col">
+          
+          <!-- Pane Header -->
+          <div class="flex items-center justify-between mb-3 px-1">
+            <div class="flex items-center gap-2">
+              <span class="bg-black text-white text-[11px] font-mono font-bold px-2 py-0.5 rounded border border-black">INPUT // SRC</span>
+              <span class="font-display font-bold text-sm tracking-tight text-charcoal">YOUR CODE</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button class="text-xs font-mono font-bold text-gblue hover:underline flex items-center gap-1">
+                <span>&lt;&gt;</span> SAMPLE BUG
+              </button>
+              <span class="text-gray-300">•</span>
+              <button class="text-xs font-mono font-bold text-chilli hover:underline flex items-center gap-1">
+                <span>⌫</span> CLEAR
+              </button>
+            </div>
+          </div>
+
+          <!-- Terminal Container -->
+          <div class="bg-[#171717] rounded-[18px] brutal-border brutal-shadow-lg overflow-hidden flex flex-col text-white">
+            
+            <!-- Terminal Titlebar -->
+            <div class="bg-[#212121] px-4 py-2.5 border-b-2 border-black/80 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#FF5F56] inline-block border border-black/20"></span>
+                <span class="w-3 h-3 rounded-full bg-[#FFBD2E] inline-block border border-black/20"></span>
+                <span class="w-3 h-3 rounded-full bg-[#27C93F] inline-block border border-black/20"></span>
+                <span class="ml-2 font-mono text-xs text-gray-400 font-medium">spaghetti_retry_logic.py</span>
+              </div>
+              <span class="text-[10px] font-mono bg-black/50 text-gray-400 px-2 py-0.5 rounded border border-white/10">UTF-8</span>
+            </div>
+
+            <!-- Code Area with Line Numbers -->
+            <div class="p-4 font-mono text-xs md:text-[13px] leading-relaxed overflow-x-auto flex">
+              <!-- Line Numbers -->
+              <div class="select-none text-[#666666] pr-4 text-right border-r border-[#333333] space-y-1 font-mono shrink-0">
+                <div>01</div>
+                <div>02</div>
+                <div>03</div>
+                <div>04</div>
+                <div>05</div>
+                <div>06</div>
+                <div>07</div>
+                <div>08</div>
+                <div>09</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
+                <div>13</div>
+                <div>14</div>
+              </div>
+
+              <!-- Highlighted Code -->
+              <div class="pl-4 space-y-1 w-full text-gray-200">
+                <div><span class="text-[#FF7B72]">import</span> time, asyncio</div>
+                <div><span class="text-[#FF7B72]">from</span> typing <span class="text-[#FF7B72]">import</span> List, Dict</div>
+                <div class="text-transparent select-none">.</div>
+                <div class="text-[#7EE787]/70 italic"># DevFest Nashik Demo: DO NOT TOUCH THIS KADAK BUG</div>
+                <div>
+                  <span class="text-[#FF7B72]">def</span> <span class="text-[#79C0FF]">fetch_godavari_sensor_metrics</span>(station_id, <span class="bg-chilli/30 text-[#FFA657] border-b-2 border-chilli px-1 rounded-sm">cache=[]</span>):
+                </div>
+                <div class="pl-4">
+                  <span class="text-[#FF7B72]">for</span> i <span class="text-[#FF7B72]">in</span> <span class="text-[#79C0FF]">range</span>(<span class="text-[#79C0FF]">len</span>(cache) + 1):
+                </div>
+                <div class="pl-8">
+                  <span class="text-[#FF7B72]">for</span> j <span class="text-[#FF7B72]">in</span> <span class="text-[#79C0FF]">range</span>(<span class="text-[#79C0FF]">len</span>(cache) + 1): <span class="text-[#8B949E] italic"># Nested O(N^2) Misal</span>
+                </div>
+                <div class="pl-12">
+                  record = {<span class="text-[#A5D6FF]">"station"</span>: station_id, <span class="text-[#A5D6FF]">"val"</span>: i * j}
+                </div>
+                <div class="pl-12">
+                  cache.append(record)
+                </div>
+                <div class="text-transparent select-none">.</div>
+                <div class="pl-4">
+                  <span class="text-[#FF7B72]">if</span> <span class="text-[#79C0FF]">len</span>(cache) > 9000:
+                </div>
+                <div class="pl-8">
+                  <span class="text-[#79C0FF]">print</span>(<span class="text-[#A5D6FF]">"Arre bhau, he kay kela? Memory full!"</span>)
+                </div>
+                <div class="pl-8">
+                  <span class="text-[#FF7B72]">raise</span> <span class="text-[#FFA657]">MemoryError</span>(<span class="text-[#A5D6FF]">"Null Pointer at Gangapur Dam!"</span>)
+                </div>
+                <div class="pl-4">
+                  <span class="text-[#FF7B72]">return</span> cache
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Status Bar -->
+            <div class="bg-[#1f1f1f] px-4 py-2 border-t border-[#333333] flex items-center justify-between text-[11px] font-mono text-gray-400">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-kothimbir"></span>
+                <span>Python • Auto-detected</span>
+                <span class="text-gray-600">•</span>
+                <span>Lines: 14</span>
+              </div>
+              <div>
+                <span>1,204 / 12,000 chars</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom micro-actions -->
+          <div class="flex items-center justify-between mt-3 text-xs font-mono text-gray-500 px-1">
+            <span>Tip: Press <kbd class="px-1.5 py-0.5 bg-white border border-black rounded text-[10px] shadow-[1px_1px_0px_#000]">Cmd+Enter</kbd> to roast</span>
+            <span class="text-kothimbir font-semibold">● Ready for roasting</span>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: ROAST REPORT PANE (ACTIVE SAVAGE AUDIT) -->
+        <div class="lg:col-span-6 flex flex-col">
+          
+          <!-- Pane Header -->
+          <div class="flex items-center justify-between mb-3 px-1">
+            <div class="flex items-center gap-2">
+              <span class="bg-chilli text-white text-[11px] font-mono font-bold px-2 py-0.5 rounded border border-black">AUDIT // REPORT</span>
+              <span class="font-display font-bold text-sm tracking-tight text-charcoal">ROAST REPORT</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span class="inline-flex items-center gap-1 bg-paleyellow text-charcoal text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border border-black">
+                <span class="w-1.5 h-1.5 rounded-full bg-chilli"></span> LIVE TELEMETRY
+              </span>
+            </div>
+          </div>
+
+          <!-- Warli Geometric Divider Ribbon -->
+          <div class="flex items-center justify-center gap-1 text-[11px] tracking-widest text-charcoal mb-4 select-none opacity-80 overflow-hidden py-1 border-y-2 border-black bg-[#F8F4EC]">
+            <span>▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼ ▲ ▼</span>
+          </div>
+
+          <!-- Savage Roast Verdict Card with Rubber-Stamp Score Badge -->
+          <div class="bg-paleyellow rounded-[18px] brutal-border brutal-shadow p-5 mb-5 relative overflow-hidden">
+            
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-4 relative z-10">
+              <div class="space-y-2 flex-1">
+                <div class="inline-flex items-center gap-1.5 bg-chilli text-white text-[10px] font-mono font-extrabold uppercase px-2 py-0.5 rounded border border-black shadow-[1px_1px_0px_#000]">
+                  <span>🔥 VERDICT: BANDRA OPEN MIC DISASTER</span>
+                </div>
+                <h3 class="font-display font-extrabold text-lg sm:text-xl text-charcoal leading-snug">
+                  "Yeh code nahi, Panchavati Express ki general boghi hai — sab ghuse hue hain, koi ticket nahi liya!"
+                </h3>
+                <p class="text-xs font-sans text-gray-700 italic">
+                  — Stand-up Roaster, DevFest Nashik Developer Lounge
+                </p>
+              </div>
+
+              <!-- Rubber-Stamp Roast Score Badge -->
+              <div class="shrink-0 transform rotate-[-3deg] bg-white rounded-xl brutal-border brutal-shadow-sm p-3 text-center min-w-[130px] border-2 border-black">
+                <div class="text-[9px] font-mono font-black uppercase tracking-wider text-chilli">ROAST SCORE</div>
+                <div class="font-display font-black text-3xl text-charcoal tracking-tight">72<span class="text-sm text-gray-400 font-bold">/100</span></div>
+                <div class="text-[8px] font-mono font-extrabold uppercase bg-mustard px-1.5 py-0.5 rounded mt-1 border border-black">
+                  ATTENDANCE SHORT, CODE BHI SHORT
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ISSUE BREAKDOWN CARDS -->
+          <div class="space-y-4 mb-5">
+            
+            <!-- Issue 1: High Severity -->
+            <div class="bg-white rounded-[16px] brutal-border brutal-shadow-sm p-4 space-y-2.5">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="bg-[#171717] text-white font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-black">Line 05</span>
+                  <span class="bg-gray-100 font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-black/30">LOGIC</span>
+                </div>
+                <span class="bg-chilli text-white font-mono text-[10px] font-black uppercase px-2 py-0.5 rounded-full border border-black shadow-[1px_1px_0px_#000]">
+                  ● HIGH SEVERITY
+                </span>
+              </div>
+              <p class="text-xs sm:text-[13px] font-sans text-charcoal leading-relaxed">
+                Passing <code class="bg-[#F8F4EC] px-1.5 py-0.5 rounded text-chilli font-mono font-bold border border-black/20">cache=[]</code> as a default argument in Python? That cache is staying alive longer than my gym resolutions. Gangapur Dam will run dry before this returns!
+              </p>
+              <div class="bg-[#F8F4EC] rounded-lg p-2.5 border border-black/20 flex items-start gap-2 text-xs font-mono">
+                <span class="text-kothimbir font-bold">Fix:</span>
+                <span class="text-gray-800">Use <code class="font-bold text-charcoal">cache = None</code> sentinel and initialize inside function.</span>
+              </div>
+            </div>
+
+            <!-- Issue 2: Medium Severity -->
+            <div class="bg-white rounded-[16px] brutal-border brutal-shadow-sm p-4 space-y-2.5">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="bg-[#171717] text-white font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-black">Line 06-07</span>
+                  <span class="bg-gray-100 font-mono text-[11px] font-bold px-2 py-0.5 rounded border border-black/30">PERFORMANCE</span>
+                </div>
+                <span class="bg-mustard text-charcoal font-mono text-[10px] font-black uppercase px-2 py-0.5 rounded-full border border-black shadow-[1px_1px_0px_#000]">
+                  ▲ MEDIUM SEVERITY
+                </span>
+              </div>
+              <p class="text-xs sm:text-[13px] font-sans text-charcoal leading-relaxed">
+                Sharma ji ka beta single line list comprehension likhta, tumne nested O(N²) loop bana diya! Sula Vineyards will harvest grapes faster than this loop finishes.
+              </p>
+              <div class="bg-[#F8F4EC] rounded-lg p-2.5 border border-black/20 flex items-start gap-2 text-xs font-mono">
+                <span class="text-kothimbir font-bold">Fix:</span>
+                <span class="text-gray-800">Eliminate quadratic recursion; append records using generator comprehension.</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- REDEMPTION ARC SECTION -->
+          <div class="bg-[#171717] rounded-[18px] brutal-border brutal-shadow p-4 text-white mb-5">
+            <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="text-mustard text-xs">✨</span>
+                <span class="font-display font-bold text-xs uppercase tracking-wider text-mustard">
+                  REDEMPTION ARC // Ab asli fix dekh, bhau
+                </span>
+              </div>
+              <button class="bg-white text-charcoal hover:bg-mustard text-[11px] font-mono font-bold px-3 py-1 rounded-full border border-white brutal-shadow-sm active:translate-x-[1px] active:translate-y-[1px] transition-all">
+                COPY →
+              </button>
+            </div>
+            
+            <!-- Code snippet -->
+            <pre class="font-mono text-xs text-gray-200 overflow-x-auto p-2 bg-[#212121] rounded-lg border border-white/10 leading-relaxed"><code><span class="text-[#FF7B72]">def</span> <span class="text-[#79C0FF]">fetch_godavari_sensor_metrics</span>(station_id, cache=<span class="text-[#79C0FF]">None</span>):
+    <span class="text-[#FF7B72]">if</span> cache <span class="text-[#FF7B72]">is None</span>:
+        cache = []
+    <span class="text-[#7EE787]/70"># Vectorized list comprehension - O(N)</span>
+    cache.extend({<span class="text-[#A5D6FF]">"station"</span>: station_id, <span class="text-[#A5D6FF]">"val"</span>: i * i} <span class="text-[#FF7B72]">for</span> i <span class="text-[#FF7B72]">in</span> <span class="text-[#79C0FF]">range</span>(10))
+    <span class="text-[#FF7B72]">return</span> cache</code></pre>
+          </div>
+
+          <!-- Encouraging quote -->
+          <div class="bg-white rounded-xl brutal-border-2 px-3.5 py-2 mb-5 flex items-center gap-2 text-xs font-mono text-gray-700">
+            <span>💬</span>
+            <span class="italic font-medium">"Chinta mat kar. Code bhi gym jaisa hai — repeat karoge toh better hoga."</span>
+          </div>
+
+          <!-- Closing Action Bar -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <button class="flex-1 bg-white hover:bg-paleyellow active:translate-x-[1px] active:translate-y-[1px] text-xs font-mono font-bold px-3 py-2 rounded-full border-2 border-black brutal-shadow-sm transition-all text-center">
+              SHARE ROAST →
+            </button>
+            <button class="flex-1 bg-mustard hover:bg-[#e2a42f] active:translate-x-[1px] active:translate-y-[1px] text-xs font-mono font-bold px-3 py-2 rounded-full border-2 border-black brutal-shadow-sm transition-all text-center">
+              ROAST AGAIN, SPICIER 🔥
+            </button>
+            <button class="bg-[#F8F4EC] hover:bg-white active:translate-x-[1px] active:translate-y-[1px] text-xs font-mono font-bold px-4 py-2 rounded-full border-2 border-black brutal-shadow-sm transition-all">
+              NEW CODE
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- HALL OF SHAME / COMMUNITY HIGHLIGHTS STRIP -->
+    <div class="bg-[#F7E3A8] rounded-[22px] brutal-border brutal-shadow p-6 mb-12">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4 pb-3 border-b-2 border-black/20">
+        <div>
+          <h2 class="font-display font-black text-xl text-charcoal flex items-center gap-2">
+            <span>Hall of Shame // DevFest Nashik 2026</span>
+            <span class="text-xs font-mono font-normal bg-black text-white px-2 py-0.5 rounded-full">LIVE FEED</span>
+          </h2>
+          <p class="text-xs font-sans text-gray-700 mt-0.5">Live telemetry from developer laptops roasting right now at Sula Vineyards Convention Hall.</p>
+        </div>
+        <div class="inline-flex items-center gap-2 bg-white rounded-full px-3 py-1 border-2 border-black text-xs font-mono font-bold">
+          <span class="w-2 h-2 rounded-full bg-chilli animate-ping"></span>
+          <span>1,842 ROASTS SERVED TODAY</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Metric Card 1 -->
+        <div class="bg-white rounded-xl brutal-border-2 p-4 brutal-shadow-sm">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-gray-500 mb-2">
+            <span>STATS // METRIC</span>
+            <span>🔥</span>
+          </div>
+          <div class="font-display font-black text-lg text-charcoal mb-1">Most Roasted Bug Type</div>
+          <p class="text-xs text-gray-600 mb-3">43% of submissions tonight contain unhandled Promises or mutating state directly in React components.</p>
+          <div class="bg-[#F8F4EC] rounded-lg p-2 border border-black/10 text-xs font-mono flex justify-between font-bold">
+            <span>1. React useEffect() infinite loop</span>
+            <span class="text-chilli">612 roasts</span>
+          </div>
+        </div>
+
+        <!-- Metric Card 2 -->
+        <div class="bg-white rounded-xl brutal-border-2 p-4 brutal-shadow-sm">
+          <div class="flex items-center justify-between text-xs font-mono font-bold text-gray-500 mb-2">
+            <span>SHARMA JI'S PICK</span>
+            <span class="bg-chilli text-white text-[10px] px-1.5 py-0.5 rounded font-bold">Score: 2/100</span>
+          </div>
+          <div class="font-display font-black text-lg text-charcoal mb-1">"Code hai ya misal pav?"</div>
+          <p class="text-xs text-gray-600 italic mb-3">"Sharma ji's son wrote clean Rust with zero runtime allocations at age 12, and here you are writing 4 nested ternary operators in a CSS style attribute."</p>
+          <div class="text-[11px] font-mono text-gray-500 flex justify-between">
+            <span>User: @nashik_coder_99</span>
+            <span class="text-mustard font-bold">Tikhat Level 🌶️🌶️</span>
+          </div>
+        </div>
+
+        <!-- Metric Card 3 -->
+        <div class="bg-white rounded-xl brutal-border-2 p-4 brutal-shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono font-bold text-gray-500 mb-2">
+              <span>SPECIAL COMMENDATION</span>
+              <span>🏆</span>
+            </div>
+            <div class="font-display font-black text-lg text-charcoal mb-1">The "Zero Warning" Myth</div>
+            <p class="text-xs text-gray-600 mb-3">Only 3 developers out of 450 today passed without a single warning. Their reward? An extra cutting chai token.</p>
+          </div>
+          <button class="w-full bg-[#141414] hover:bg-gray-800 text-white font-mono text-xs font-bold py-2 rounded-lg border border-black brutal-shadow-sm transition-all">
+            CHALLENGE THE ROASTER →
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto bg-white border-t-[3.5px] border-black">
+    
+    <!-- Geometric Warli / Rangoli pattern strip ribbon -->
+    <div class="w-full bg-[#F8F4EC] border-b-2 border-black py-1.5 px-4 overflow-hidden">
+      <div class="flex items-center justify-center gap-2 text-xs font-mono tracking-widest text-charcoal uppercase select-none">
+        <span>◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇</span>
+        <span class="font-bold">WARLI TRADITIONAL ART INSPIRATION • NASHIK • MAHARASHTRA • DEVFEST 2026</span>
+        <span>◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇</span>
+      </div>
+    </div>
+
+    <!-- Main Footer Container -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Left: Branding & Logos side-by-side -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <!-- GDG Nashik Mini Vector Logo -->
+          <svg width="150" height="32" viewBox="0 0 1098 155" fill="none" class="h-6 w-auto">
+            <path d="M55.5846 13.2663L17.3299 40.755C9.30045 46.5248 7.46859 57.7113 13.2384 65.7408L13.2418 65.7457C19.0116 73.7751 30.1981 75.607 38.2276 69.8372L76.4822 42.3485C84.5117 36.5787 86.3436 25.3922 80.5738 17.3627L80.5703 17.3579C74.8006 9.32841 63.614 7.49654 55.5846 13.2663Z" fill="#EA4335"/>
+            <path d="M13.2575 44.8246L13.254 44.8295C7.48421 52.859 9.31608 64.0455 17.3456 69.8153L55.6002 97.304C63.6297 103.074 74.8162 101.242 80.586 93.2124L80.5894 93.2076C86.3592 85.1781 84.5274 73.9916 76.4979 68.2218L38.2433 40.7331C30.2138 34.9633 19.0272 36.7952 13.2575 44.8246Z" fill="#4285FA"/>
+            <path d="M148.012 40.7732L109.757 68.2619C101.728 74.0317 99.8958 85.2182 105.666 93.2477L105.669 93.2525C111.439 101.282 122.625 103.114 130.655 97.3441L168.909 69.8554C176.939 64.0856 178.771 52.8991 173.001 44.8696L172.998 44.8647C167.228 36.8352 156.041 35.0034 148.012 40.7732Z" fill="#F9AB00"/>
+            <path d="M105.677 17.3295L105.673 17.3344C99.9036 25.3639 101.736 36.5504 109.765 42.3202L148.02 69.8089C156.049 75.5787 167.236 73.7468 173.005 65.7173L173.009 65.7125C178.779 57.683 176.947 46.4965 168.917 40.7267L130.663 13.238C122.633 7.46817 111.447 9.30004 105.677 17.3295Z" fill="#34A853"/>
+            <path d="M209.634 142V109.064H214.418L230.932 135.284H231.116L230.932 128.936V109.064H234.842V142H230.794L213.544 114.538H213.36L213.544 120.886V142H209.634ZM322.864 142V109.064H326.774V129.718L337.814 118.54H342.782V118.724L333.536 127.97L343.058 141.816V142H338.366L330.822 130.73L326.774 134.778V142H322.864Z" fill="#4285FA"/>
+            <text x="210" y="65" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="44" fill="#0F0F0F">Google Developer Groups</text>
+            <text x="355" y="138" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="40" fill="#4285FA">Nashik</text>
+          </svg>
+
+          <!-- DevFest Nashik Mini Vector Logo -->
+          <svg width="120" height="30" viewBox="0 0 638 182" fill="none" class="h-6 w-auto">
+            <path d="M3.53604 106.838H10.9986V155.943C15.8132 168.454 22.8661 172.97 39.8932 180.023H59.1517V151.078H44.3815V32.4814H59.1517V1.61523H39.8932C22.8685 8.66571 15.8132 25.6885 15.8132 69.9455H3.53604V106.838Z" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <path d="M633.511 74.7938H626.048V25.6885C621.217 10.8962 614.172 8.66075 597.137 1.61524H577.875V30.5502H592.659V144.335H577.878V180.023H597.137C614.163 172.969 621.217 155.943 621.217 111.686H633.511V74.7938Z" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="90" y="70" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="78" fill="#1E1E1E">DevFest</text>
+            <rect x="90" y="114" width="458" height="66" rx="33" fill="white" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="130" y="160" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="34" fill="#1E1E1E">नाशिक</text>
+            <rect x="380" y="114" width="168" height="66" rx="33" fill="#F9AB00" stroke="#1E1E1E" stroke-width="4"/>
+            <text x="430" y="160" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="36" fill="#1E1E1E">'26</text>
+          </svg>
+
+          <div>
+            <div class="font-display font-bold text-xs text-charcoal">
+              DevFest Nashik 2026 • Crafted with Kadak Chai &amp; Code
+            </div>
+            <div class="text-[11px] font-sans text-gray-500">
+              by Google Developer Groups Nashik Community
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Links -->
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-gray-600">
+          <a href="#" class="hover:text-charcoal hover:underline">Warli Art Credits</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="hover:text-charcoal hover:underline">Open Source Terminal</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="hover:text-charcoal hover:underline">Report a Bug / तक्रार करा</a>
+          <span class="text-gray-300">•</span>
+          <a href="#" class="hover:text-charcoal hover:underline">GDG Code of Conduct</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
