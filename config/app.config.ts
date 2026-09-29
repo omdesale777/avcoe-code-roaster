@@ -63,3 +63,43 @@ export const SAMPLE = {
 scores = [85, 90, 78, 92]
 print(calculate_average(scores))`,
 } as const;
+
+export const SAMPLE_SNIPPETS: Record<string, { code: string; language: string }> = {
+  python: SAMPLE,
+  javascript: {
+    language: "javascript",
+    code: `function sumCart(items) {
+  let total = 0;
+  for (var i = 0; i < items.length; i++) {
+    total =+ items[i].price; // Bug: typo '=+' instead of '+='
+  }
+  return total;
+}`,
+  },
+  typescript: {
+    language: "typescript",
+    code: `interface User {
+  id: string;
+  name: string;
+}
+
+function getUserEmail(user: User): string {
+  // Bug: accessing property not declared in User type
+  return (user as any).email.toLowerCase();
+}`,
+  },
+  cpp: {
+    language: "cpp",
+    code: `#include <iostream>
+#include <vector>
+
+int main() {
+    std::vector<int> v = {10, 20, 30};
+    // Bug: out-of-bounds index access
+    for (size_t i = 0; i <= v.size(); ++i) {
+        std::cout << v[i] << std::endl;
+    }
+    return 0;
+}`,
+  },
+};

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
-import { AI, DEFAULTS, SAMPLE } from "@/config/app.config";
+import { AI, DEFAULTS, SAMPLE, SAMPLE_SNIPPETS } from "@/config/app.config";
 import { requestRoast } from "@/lib/api";
 import {
   LanguageId,
@@ -60,9 +60,10 @@ export function Workspace() {
 
   // Load Built-in Sample Bug
   const handleLoadSample = useCallback(() => {
-    setLanguage(SAMPLE.language);
-    setCode(SAMPLE.code);
-  }, []);
+    const sample = SAMPLE_SNIPPETS[language] || SAMPLE;
+    setLanguage(sample.language as LanguageId);
+    setCode(sample.code);
+  }, [language]);
 
   // Apply Fixed Code to Editor without re-roasting
   const handleApplyFix = useCallback((fixedCode: string) => {
