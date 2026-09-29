@@ -1,8 +1,15 @@
 # 🌶️ Code Roaster (Desi Edition)
 
 > **"Paste your code, get roasted, walk away with the fix."**  
-> Built with **Google Antigravity 2.0**, **Google Stitch MCP**, **Gemini 3.5 Flash**, **Next.js 15 App Router**, and **Tailwind CSS v4**.  
+> Built with **Google Antigravity 2.0**, **Google Stitch MCP**, **Gemini 3.5 Flash-Lite**, **Next.js 15 App Router**, and **Tailwind CSS v4**.  
 > Specially crafted for **GDG on Campus MET** & **Pre-DevFest Nashik 2026**.
+
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js)](https://nextjs.org)
+[![Gemini](https://img.shields.io/badge/Gemini-3.5%20Flash--Lite-blue?style=flat&logo=google)](https://aistudio.google.com)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com)
+[![DevFest](https://img.shields.io/badge/DevFest-Nashik%202026-F9AB00?style=flat)](https://gdg.community.dev)
+
+**Live Demo**: [avcoe-code-roaster-ivory.vercel.app](https://avcoe-code-roaster-ivory.vercel.app)
 
 **Code Roaster (Desi Edition)** pairs technical code review with humorous, punchy Indian-dev commentary (Hinglish/Marathi slang + spicy developer metaphors). It detects real bugs, classifies them into `FATAL BUG`, `CODE SMELL`, and `OPTIMIZATION`, delivers a comedic critique across 3 intensity levels (**Dry**, **Sharp**, **Savage**), and gives you clean, corrected code with 1-click **Apply to Editor**.
 
