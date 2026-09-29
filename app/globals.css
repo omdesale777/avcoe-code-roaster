@@ -17,6 +17,11 @@
   --color-editor-ink: #F7F3EA;
 }
 
+/* Global Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Neo-Brutalist Border and Shadow Primitives */
 .brutal-border {
   border: 2.5px solid #141414;
